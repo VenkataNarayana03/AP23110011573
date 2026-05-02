@@ -4,6 +4,7 @@ const { accessToken, baseUrl, depotApiUrl, tasksApiUrl } = require("./config");
 const { log } = require("./logger");
 const { scheduleMaintenance } = require("./scheduler");
 const { readJson, sendJson } = require("./utils");
+const { notificationRouter } = require("./notification_routes");
 
 function appendQuery(url, params) {
   const target = new URL(url);
@@ -109,6 +110,11 @@ async function router(req, res) {
 
   if (req.method === "GET" && pathname === "/health") {
     sendJson(res, 200, { status: "ok", service: "vehicle-maintenance-scheduler" });
+    return;
+  }
+
+  if (pathname.startsWith("/notifications")) {
+    await notificationRouter(req, res, pathname);
     return;
   }
 
