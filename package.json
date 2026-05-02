@@ -1,0 +1,21 @@
+{
+  "name": "vehicle-maintenance-scheduler",
+  "version": "1.0.0",
+  "description": "Vehicle maintenance scheduler microservice with reusable logging middleware.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node src/server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "backend",
+    "logging",
+    "vehicle-maintenance",
+    "scheduler"
+  ],
+  "license": "MIT"
+}
